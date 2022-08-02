@@ -50,8 +50,6 @@ class Editor extends React.Component {
 
     this.submitForm = (ev) => {
       ev.preventDefault();
-      // console.log("adding item...")
-      // console.log(this.props.image)
       const item = {
         title: this.props.title,
         description: this.props.description,
