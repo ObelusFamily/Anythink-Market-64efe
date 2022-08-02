@@ -10,6 +10,7 @@ import {
   EDITOR_PAGE_UNLOADED,
   UPDATE_FIELD_EDITOR,
 } from "../constants/actionTypes";
+import placeholder from "./placeholder.png";
 
 const mapStateToProps = (state) => ({
   ...state.editor,
@@ -30,7 +31,7 @@ class Editor extends React.Component {
     super();
 
     const updateFieldEvent = (key) => (ev) =>
-      this.props.onUpdateField(key, ev.target.value);
+    this.props.onUpdateField(key, ev.target.value);
     this.changeTitle = updateFieldEvent("title");
     this.changeDescription = updateFieldEvent("description");
     this.changeImage = updateFieldEvent("image");
@@ -49,10 +50,12 @@ class Editor extends React.Component {
 
     this.submitForm = (ev) => {
       ev.preventDefault();
+      // console.log("adding item...")
+      // console.log(this.props.image)
       const item = {
         title: this.props.title,
         description: this.props.description,
-        image: this.props.image,
+        image: this.props.image === "" ? placeholder : this.props.image,
         tagList: this.props.tagList,
       };
 
