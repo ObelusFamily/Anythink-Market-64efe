@@ -48,7 +48,7 @@ class Item extends React.Component {
     if (!this.props.item.image) {
       this.props.item.image = "/placeholder.png";
     }
-    
+
     return (
       <div className="container page">
         <div className="text-dark">
