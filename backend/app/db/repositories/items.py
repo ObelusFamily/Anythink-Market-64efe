@@ -57,6 +57,9 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
                 await self._tags_repo.create_tags_that_dont_exist(tags=tags)
                 await self._link_item_with_tags(slug=slug, tags=tags)
 
+            if image == None or image == "string":
+                image = "/placeholder.png"
+
         return await self._get_item_from_db_record(
             item_row=item_row,
             slug=slug,
